@@ -1,16 +1,18 @@
-!#/bin/bash
+#!/bin/bash
 
 ## STRINGS ##
 WELCOME="Hello! Starting a new project ey?"
 HTML="What HTML template engine would you like?"
-CSS="What CSS post-processor would you like?"
+CSS="What CSS post-processor would you like?: "
 INVALID_OPTION="Select valid option"
 
 
 ## CHOICES ##
 
-## CSS ##
+## COMMON ##
 STANDARD="1. Standard"
+
+## CSS ##
 SASS="2. Sass"
 SCSS="3. SCSS"
 STYLUS="4. Stylus"
@@ -27,9 +29,21 @@ css_choices=(
 )
 
 ## HTML ##
+HAML="2. Haml"
+PUG="3. Pug"
+HANDLEBARS="4. Handlebars"
+SLIM="5. Slim"
 
+html_choices=(
+  STANDARD
+  SASS
+  SCSS
+  STYLUS
+  LESS
+  POSTCSS
+)
 
-PS3='What CSS post-processor would you like?: '
+PS3=${CSS}
 select choice in "${css_choices[@]}"
 do
   case $choice in
