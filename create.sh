@@ -36,11 +36,10 @@ SLIM="5. Slim"
 
 html_choices=(
   STANDARD
-  SASS
-  SCSS
-  STYLUS
-  LESS
-  POSTCSS
+  HAML
+  PUG
+  HANDLEBARS
+  SLIM
 )
 
 PS3=${CSS}
@@ -49,21 +48,57 @@ do
   case $choice in
     STANDARD)
       echo ${STANDARD}
+      break
       ;;
     SASS)
       echo ${SASS}
+      break
       ;;
     SCSS)
       echo ${SCSS}
+      break
       ;;
     STYLUS)
       echo ${STYLUS}
+      break
       ;;
     LESS)
       echo ${LESS}
+      break
       ;;
     POSTCSS)
       echo ${POSTCSS}
+      break
+      ;;
+    *)
+      echo ${INVALID_OPTION}
+      ;;
+  esac
+done
+  
+PS3=${HTML}
+select choice in "${html_choices[@]}"
+do
+  case $choice in
+    STANDARD)
+      echo ${STANDARD}
+      break
+      ;;
+    HAML)
+      echo ${HAML}
+      break
+      ;;
+    PUG)
+      echo ${PUG}
+      break
+      ;;
+    HANDLEBARS)
+      echo ${HANDLEBARS}
+      break
+      ;;
+    SLIM)
+      echo ${SLIM}
+      break
       ;;
     *)
       echo ${INVALID_OPTION}
