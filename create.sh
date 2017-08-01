@@ -10,14 +10,14 @@ INVALID_OPTION="Select valid option"
 ## CHOICES ##
 
 ## COMMON ##
-STANDARD="1. Standard"
+STANDARD="Standard"
 
 ## CSS ##
-SASS="2. Sass"
-SCSS="3. SCSS"
-STYLUS="4. Stylus"
-LESS="5. LESS"
-POSTCSS="6. PostCSS"
+SASS="Sass"
+SCSS="SCSS"
+STYLUS="Stylus"
+LESS="LESS"
+POSTCSS="PostCSS"
 
 css_choices=(
   STANDARD
@@ -29,10 +29,10 @@ css_choices=(
 )
 
 ## HTML ##
-HAML="2. Haml"
-PUG="3. Pug"
-HANDLEBARS="4. Handlebars"
-SLIM="5. Slim"
+HAML="Haml"
+PUG="Pug"
+HANDLEBARS="Handlebars"
+SLIM="Slim"
 
 html_choices=(
   STANDARD
