@@ -21,13 +21,13 @@ function create_project() {
   #   url-loader\
   #   webpack\
   #   webpack-dev-server
-  # mkdir src
-  # cd src
-  # mkdir image
-  # mkdir js
-  # mkdir style
-  # mkdir view
-  # touch view/index.$1
-  # touch style/index.$2
-  # echo "import '../style/index.$2'" >> js/index.js
+  mkdir src
+  cd src
+  mkdir image
+  mkdir js
+  mkdir style
+  mkdir view
+  touch view/index.$html_extension
+  touch style/index.$css_extension
+  echo "import '../style/index.$css_extension'" >> js/index.js
 }
