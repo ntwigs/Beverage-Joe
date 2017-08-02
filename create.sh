@@ -122,10 +122,27 @@ function get_confirm_choice() {
   echo $REPLY
 }
 
+function create_project() {
+  cd $PWD
+  npm init
+  npm install --save-dev\
+    babel-core\
+    babel-loader\
+    babel-plugin-transform-class-properties\
+    babel-preset-es2015\
+    css-loader\
+    html-loader\
+    html-webpack-plugin\
+    style-loader\
+    url-loader\
+    webpack\
+    webpack-dev-server\
+  
+}
+
 function proceed() {
   if [[ $1 =~ ^[Yy]$ ]]; then
-    echo "Creating project"
-    echo $PWD
+    create_project $2 $3
     exit 1
   elif [[ $1 =~ ^[Nn]$ ]]; then
     clear
@@ -146,7 +163,7 @@ function initialize() {
   present_choices ${html_choice} ${css_choice}
   local confirm_choice=$(get_confirm_choice)
   clear
-  proceed $confirm_choice
+  proceed $confirm_choice $html_choice $css_choice
 }
 
 initialize
