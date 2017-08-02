@@ -1,114 +1,11 @@
 #!/bin/bash
 
+PATH="$(dirname "$0")"
+source ${PATH}/css.sh
+source ${PATH}/html.sh
+
 ## STRINGS ##
-HTML="What HTML template engine would you like?: "
-CSS="What CSS post-processor would you like?: "
-INVALID_OPTION="Select valid option"
 CONFIRMATION="Are you ok with this? (y/n/q) "
-
-
-## CHOICES ##
-
-## COMMON ##
-STANDARD="Standard"
-
-## CSS ##
-SASS="Sass"
-SCSS="SCSS"
-STYLUS="Stylus"
-LESS="LESS"
-POSTCSS="PostCSS"
-
-css_choices=(
-  STANDARD
-  SASS
-  SCSS
-  STYLUS
-  LESS
-  POSTCSS
-)
-
-## HTML ##
-HAML="Haml"
-PUG="Pug"
-HANDLEBARS="Handlebars"
-SLIM="Slim"
-
-html_choices=(
-  STANDARD
-  HAML
-  PUG
-  HANDLEBARS
-  SLIM
-)
-
-function get_html_choice() {
-  PS3=${HTML}
-  select choice in "${html_choices[@]}"
-  do
-    case $choice in
-      STANDARD)
-        echo ${STANDARD}
-        break
-        ;;
-      HAML)
-        echo ${HAML}
-        break
-        ;;
-      PUG)
-        echo ${PUG}
-        break
-        ;;
-      HANDLEBARS)
-        echo ${HANDLEBARS}
-        break
-        ;;
-      SLIM)
-        echo ${SLIM}
-        break
-        ;;
-      *)
-        echo ${INVALID_OPTION}
-        ;;
-    esac
-  done
-}
-
-function get_css_choice() {
-  PS3=${CSS}
-  select choice in "${css_choices[@]}"
-  do
-    case $choice in
-      STANDARD)
-        echo ${STANDARD}
-        break
-        ;;
-      SASS)
-        echo ${SASS}
-        break
-        ;;
-      SCSS)
-        echo ${SCSS}
-        break
-        ;;
-      STYLUS)
-        echo ${STYLUS}
-        break
-        ;;
-      LESS)
-        echo ${LESS}
-        break
-        ;;
-      POSTCSS)
-        echo ${POSTCSS}
-        break
-        ;;
-      *)
-        echo ${INVALID_OPTION}
-        ;;
-    esac
-  done
-}
 
 function present_choices() {
   echo "
@@ -125,19 +22,27 @@ function get_confirm_choice() {
 function create_project() {
   cd $PWD
   npm init
-  npm install --save-dev\
-    babel-core\
-    babel-loader\
-    babel-plugin-transform-class-properties\
-    babel-preset-es2015\
-    css-loader\
-    html-loader\
-    html-webpack-plugin\
-    style-loader\
-    url-loader\
-    webpack\
-    webpack-dev-server\
-  
+  # npm install --save-dev\
+  #   babel-core\
+  #   babel-loader\
+  #   babel-plugin-transform-class-properties\
+  #   babel-preset-es2015\
+  #   css-loader\
+  #   html-loader\
+  #   html-webpack-plugin\
+  #   style-loader\
+  #   url-loader\
+  #   webpack\
+  #   webpack-dev-server
+  mkdir src
+  cd src
+  mkdir image
+  mkdir js
+  mkdir style
+  mkdir view
+  touch view/index.$1
+  touch style/index.$2
+  echo "import '../style/index.$2'" >> js/index.js
 }
 
 function proceed() {
@@ -153,16 +58,16 @@ function proceed() {
 }
 
 function initialize() {
-  
+
   # Selection
-  clear
+  echo $(clear)
   local html_choice=$(get_html_choice)
-  clear
+  echo $(clear)
   local css_choice=$(get_css_choice)
-  clear
+  echo $(clear)
   present_choices ${html_choice} ${css_choice}
   local confirm_choice=$(get_confirm_choice)
-  clear
+  echo $(clear)
   proceed $confirm_choice $html_choice $css_choice
 }
 
