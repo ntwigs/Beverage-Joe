@@ -43,23 +43,23 @@ function get_html_choice() {
   do
     case $choice in
       STANDARD)
-        echo ${STANDARD}
+        echo STANDARD
         break
         ;;
       HAML)
-        echo ${HAML}
+        echo HAML
         break
         ;;
       PUG)
-        echo ${PUG}
+        echo PUG
         break
         ;;
       HANDLEBARS)
-        echo ${HANDLEBARS}
+        echo HANDLEBARS
         break
         ;;
       SLIM)
-        echo ${SLIM}
+        echo SLIM
         break
         ;;
       *)
