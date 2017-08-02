@@ -1,10 +1,10 @@
 #!/bin/bash
 
 ## STRINGS ##
-WELCOME="Hello! Starting a new project ey?"
 HTML="What HTML template engine would you like?: "
 CSS="What CSS post-processor would you like?: "
 INVALID_OPTION="Select valid option"
+CONFIRMATION="Are you ok with this? (y/n/q) "
 
 
 ## CHOICES ##
@@ -118,8 +118,21 @@ function present_choices() {
 }
 
 function get_confirm_choice() {
-  read -p "Are you ok with this? (y/n/q) " -n 1 -r
+  read -p "$CONFIRMATION" -n 1 -r
   echo $REPLY
+}
+
+function proceed() {
+  if [[ $1 =~ ^[Yy]$ ]]; then
+    echo "Creating project"
+    echo $PWD
+    exit 1
+  elif [[ $1 =~ ^[Nn]$ ]]; then
+    clear
+    initialize
+  elif [[ $1 =~ ^[Qq]$ ]]; then
+    exit 1
+  fi
 }
 
 function initialize() {
@@ -133,15 +146,7 @@ function initialize() {
   present_choices ${html_choice} ${css_choice}
   local confirm_choice=$(get_confirm_choice)
   clear
-  if [[ $confirm_choice =~ ^[Yy]$ ]]; then
-    echo "Creating project"
-    exit 1  
-  elif [[ $confirm_choice =~ ^[Nn]$ ]]; then
-    clear
-    initialize
-  elif [[ $confirm_choice =~ ^[Qq]$ ]]; then
-    exit 1
-  fi
+  proceed $confirm_choice
 }
 
 initialize
