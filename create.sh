@@ -3,6 +3,7 @@
 PATH="$(dirname "$0")"
 source ${PATH}/css.sh
 source ${PATH}/html.sh
+source ${PATH}/utils.sh
 
 ## STRINGS ##
 CONFIRMATION="Are you ok with this? (y/n/q) "
@@ -60,14 +61,14 @@ function proceed() {
 function initialize() {
 
   # Selection
-  echo $(clear)
+  cls
   local html_choice=$(get_html_choice)
-  echo $(clear)
+  cls
   local css_choice=$(get_css_choice)
-  echo $(clear)
+  cls
   present_choices ${html_choice} ${css_choice}
   local confirm_choice=$(get_confirm_choice)
-  echo $(clear)
+  cls
   proceed $confirm_choice $html_choice $css_choice
 }
 
