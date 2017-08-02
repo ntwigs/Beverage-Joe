@@ -3,12 +3,11 @@
 CSS="What CSS post-processor would you like?: "
 INVALID_OPTION="Select valid option"
 
-STANDARD="Standard"
-SASS="Sass"
-SCSS="SCSS"
-STYLUS="Stylus"
-LESS="LESS"
-POSTCSS="PostCSS"
+STANDARD="css"
+SASS="sass"
+SCSS="scss"
+STYLUS="styl"
+LESS="less"
 
 css_choices=(
   STANDARD
@@ -16,8 +15,27 @@ css_choices=(
   SCSS
   STYLUS
   LESS
-  POSTCSS
 )
+
+function get_css_extension() {
+  case $1 in
+    STANDARD)
+      echo ${STANDARD}
+      ;;
+    SASS)
+      echo ${SASS}
+      ;;
+    SCSS)
+      echo ${SCSS}
+      ;;
+    STYLUS)
+      echo ${STYLUS}
+      ;;
+    LESS)
+      echo ${LESS}
+      ;;
+  esac
+}
 
 function get_css_choice() {
   PS3=${CSS}
@@ -25,27 +43,27 @@ function get_css_choice() {
   do
     case $choice in
       STANDARD)
-        echo ${STANDARD}
+        echo STANDARD
         break
         ;;
       SASS)
-        echo ${SASS}
+        echo SASS
         break
         ;;
       SCSS)
-        echo ${SCSS}
+        echo SCSS
         break
         ;;
       STYLUS)
-        echo ${STYLUS}
+        echo STYLUS
         break
         ;;
       LESS)
-        echo ${LESS}
+        echo LESS
         break
         ;;
       POSTCSS)
-        echo ${POSTCSS}
+        echo POSTCSS
         break
         ;;
       *)
