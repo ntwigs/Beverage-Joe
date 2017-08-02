@@ -1,10 +1,10 @@
 #!/bin/bash
 
-PATH="$(dirname "$0")"
-source ${PATH}/lib/css.sh
-source ${PATH}/lib/html.sh
-source ${PATH}/lib/create.sh
-source ${PATH}/lib/utils.sh
+path="$(dirname "$0")"
+source ${path}/lib/css.sh
+source ${path}/lib/html.sh
+source ${path}/lib/create.sh
+source ${path}/lib/utils.sh
 
 ## STRINGS ##
 CONFIRMATION="Are you ok with this? (y/n/q) "
