@@ -3,11 +3,11 @@
 HTML="What HTML template engine would you like?: "
 INVALID_OPTION="Select valid option"
 
-STANDARD="Standard"
-HAML="Haml"
-PUG="Pug"
-HANDLEBARS="Handlebars"
-SLIM="Slim"
+STANDARD="html"
+HAML="haml"
+PUG="pug"
+HANDLEBARS="hbs"
+SLIM="slim"
 
 html_choices=(
   STANDARD
@@ -16,6 +16,26 @@ html_choices=(
   HANDLEBARS
   SLIM
 )
+
+function get_html_extension() {
+  case $1 in
+    STANDARD)
+      echo ${STANDARD}
+      ;;
+    HAML)
+      echo ${HAML}
+      ;;
+    PUG)
+      echo ${PUG}
+      ;;
+    HANDLEBARS)
+      echo ${HANDLEBARS}
+      ;;
+    SLIM)
+      echo ${SLIM}
+      ;;
+  esac
+}
 
 function get_html_choice() {
   PS3=${HTML}
