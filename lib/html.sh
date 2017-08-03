@@ -7,15 +7,38 @@ STANDARD="html"
 HAML="haml"
 PUG="pug"
 HANDLEBARS="hbs"
-SLIM="slim"
 
 html_choices=(
   STANDARD
   HAML
   PUG
   HANDLEBARS
-  SLIM
 )
+
+function get_loader_information() {
+  case $1 in
+    STANDARD)
+      echo "
+        {
+          test: /\.html$/,
+          loader: 'html-loader'
+        },
+      "
+      ;;
+    HAML)
+      npm install --save-dev haml-loader
+      echo ${HAML}
+      ;;
+    PUG)
+      npm install --save-dev pug pug-html-loader
+      echo ${PUG}
+      ;;
+    HANDLEBARS)
+      npm install --save-dev handlebars-loader handlebars
+      echo ${HANDLEBARS}
+      ;;
+  esac
+}
 
 function get_html_extension() {
   case $1 in
@@ -23,16 +46,16 @@ function get_html_extension() {
       echo ${STANDARD}
       ;;
     HAML)
+      npm install --save-dev haml-loader
       echo ${HAML}
       ;;
     PUG)
+      npm install --save-dev pug pug-html-loader
       echo ${PUG}
       ;;
     HANDLEBARS)
+      npm install --save-dev handlebars-loader handlebars
       echo ${HANDLEBARS}
-      ;;
-    SLIM)
-      echo ${SLIM}
       ;;
   esac
 }
@@ -56,10 +79,6 @@ function get_html_choice() {
         ;;
       HANDLEBARS)
         echo HANDLEBARS
-        break
-        ;;
-      SLIM)
-        echo SLIM
         break
         ;;
       *)
