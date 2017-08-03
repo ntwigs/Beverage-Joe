@@ -4,15 +4,13 @@ CSS="What CSS post-processor would you like?: "
 INVALID_OPTION="Select valid option"
 
 STANDARD="css"
-SASS="sass"
-SCSS="scss"
+SASS="scss"
 STYLUS="styl"
 LESS="less"
 
 css_choices=(
   STANDARD
   SASS
-  SCSS
   STYLUS
   LESS
 )
@@ -23,15 +21,15 @@ function get_css_extension() {
       echo ${STANDARD}
       ;;
     SASS)
+      npm install --save-dev sass-loader node-sass sass
       echo ${SASS}
       ;;
-    SCSS)
-      echo ${SCSS}
-      ;;
     STYLUS)
+      npm install --save-dev stylus-loader stylus
       echo ${STYLUS}
       ;;
     LESS)
+      npm install --save-dev less-loader less
       echo ${LESS}
       ;;
   esac
@@ -50,20 +48,12 @@ function get_css_choice() {
         echo SASS
         break
         ;;
-      SCSS)
-        echo SCSS
-        break
-        ;;
       STYLUS)
         echo STYLUS
         break
         ;;
       LESS)
         echo LESS
-        break
-        ;;
-      POSTCSS)
-        echo POSTCSS
         break
         ;;
       *)
