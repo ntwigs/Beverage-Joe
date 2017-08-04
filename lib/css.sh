@@ -52,21 +52,32 @@ function get_css_loader_information() {
   esac
 }
 
+function install_css_dependency() {
+  case $1 in
+    SASS)
+      npm install --save-dev sass-loader node-sass sass
+      ;;
+    STYLUS)
+      npm install --save-dev stylus-loader stylus
+      ;;
+    LESS)
+      npm install --save-dev less-loader less
+      ;;
+  esac
+}
+
 function get_css_extension() {
   case $1 in
     STANDARD)
       echo ${STANDARD}
       ;;
     SASS)
-      npm install --save-dev sass-loader node-sass sass
       echo ${SASS}
       ;;
     STYLUS)
-      npm install --save-dev stylus-loader stylus
       echo ${STYLUS}
       ;;
     LESS)
-      npm install --save-dev less-loader less
       echo ${LESS}
       ;;
   esac
