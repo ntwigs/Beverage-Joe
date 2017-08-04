@@ -8,6 +8,10 @@ source ${path}/lib/utils.sh # cls
 
 ## STRINGS ##
 CONFIRMATION="Are you ok with this? (y/n/q) "
+NO_NAME="
+  You have to set a name
+  Ex. create-joe amazing-project
+"
 
 # Presents the selected choices to user for evaluation
 function present_choices() {
@@ -37,10 +41,7 @@ function proceed() {
 
 function check_name() {
   if [[ -z "${1// }" ]]; then
-    echo "
-      You have to set a name
-      Ex. create-joe amazing-project
-    "
+    echo "$NO_NAME"
     exit 1
   fi
 }
