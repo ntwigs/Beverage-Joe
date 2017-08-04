@@ -11,7 +11,7 @@ source ${path}/lib/strings.sh # confirmation no_name present_choices
 # Gets one input from user
 function get_confirm_choice() {
   read -p "$confirmation" -n 1 -r
-  echo $reply
+  echo $REPLY
 }
 
 # Proceeds with selecting the task that matches the input
