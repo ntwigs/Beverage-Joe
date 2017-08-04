@@ -1,7 +1,6 @@
 #!/bin/bash
 
-HTML="What HTML template engine would you like?: "
-INVALID_OPTION="Select valid option"
+source ${path}/lib/strings.sh # * HTML Loaders
 
 STANDARD="html"
 HAML="haml"
@@ -27,7 +26,7 @@ function get_html_loader_information() {
       echo "$PUG_LOADER" 
       ;;
     HANDLEBARS)
-      echo 
+      echo "$HANDLEBARS_LOADER"
       ;;
   esac
 }
