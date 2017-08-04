@@ -3,6 +3,7 @@
 path="$(dirname "$0")" # Bash directory
 source ${path}/lib/css.sh # get_css_extension get_css_loader_information
 source ${path}/lib/html.sh # get_html_extension get_html_loader_informationsven
+source ${path}/lib/strings.sh # get_package get_webpack_content
 
 function install_main_dependencies() {
   npm install --save-dev\
