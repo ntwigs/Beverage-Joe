@@ -52,21 +52,32 @@ function get_html_loader_information() {
   esac
 }
 
+function install_html_dependency() {
+  case $1 in
+    HAML)
+      npm install --save-dev haml-loader
+      ;;
+    PUG)
+      npm install --save-dev pug pug-html-loader
+      ;;
+    HANDLEBARS)
+      npm install --save-dev handlebars-loader handlebars
+      ;;
+  esac
+}
+
 function get_html_extension() {
   case $1 in
     STANDARD)
       echo ${STANDARD}
       ;;
     HAML)
-      npm install --save-dev haml-loader
       echo ${HAML}
       ;;
     PUG)
-      npm install --save-dev pug pug-html-loader
       echo ${PUG}
       ;;
     HANDLEBARS)
-      npm install --save-dev handlebars-loader handlebars
       echo ${HANDLEBARS}
       ;;
   esac
