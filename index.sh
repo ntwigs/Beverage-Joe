@@ -26,7 +26,7 @@ function get_confirm_choice() {
 # Proceeds with selecting the task that matches the input
 function proceed() {
   if [[ $1 =~ ^[Yy]$ ]]; then
-    create_project $2 $3
+    create_project $2 $3 $4
   elif [[ $1 =~ ^[Nn]$ ]]; then
     cls
     initialize
@@ -35,7 +35,18 @@ function proceed() {
   fi
 }
 
+function check_name() {
+  if [[ -z "${1// }" ]]; then
+    echo "
+      You have to set a name
+      Ex. create-joe amazing-project
+    "
+    exit 1
+  fi
+}
+
 function initialize() {
+  check_name $1 # $1 is the first argument which should be a name
   cls
   local html_choice=$(get_html_choice)
   cls
@@ -44,7 +55,7 @@ function initialize() {
   present_choices ${html_choice} ${css_choice}
   local confirm_choice=$(get_confirm_choice)
   cls
-  proceed $confirm_choice $html_choice $css_choice
+  proceed $confirm_choice $html_choice $css_choice $1
 }
 
-initialize
+initialize $1
