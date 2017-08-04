@@ -15,7 +15,7 @@ html_choices=(
   HANDLEBARS
 )
 
-function get_loader_information() {
+function get_html_loader_information() {
   case $1 in
     STANDARD)
       echo "
@@ -38,12 +38,16 @@ function get_loader_information() {
         {
           test: /\.pug$/,
           loader: 'html-loader!pug-html-loader?pretty&exports=false'
-        }
+        },
       "
       ;;
     HANDLEBARS)
-      npm install --save-dev handlebars-loader handlebars
-      echo ${HANDLEBARS}
+      echo "
+        {
+          test: /\.(hbs|handlebars)$/,
+          loader: 'handlebars-loader'
+        },
+      "
       ;;
   esac
 }
@@ -95,5 +99,3 @@ function get_html_choice() {
     esac
   done
 }
-
-export -f get_html_choice
