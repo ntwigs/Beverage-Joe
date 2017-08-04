@@ -15,6 +15,43 @@ css_choices=(
   LESS
 )
 
+function get_css_loader_information() {
+  case $1 in
+    STANDARD)
+      echo "
+        {
+          test: /\.css$/,
+          loaders: 'style-loader!css-loader?minimize=true'
+        },
+      "
+      ;;
+    SASS)
+      echo "
+        {
+          test: /\.scss$/,
+          loaders: 'style-loader!css-loader?minimize=true!sass-loader'
+        },
+      "
+      ;;
+    STYLUS)
+      echo "
+        {
+          test: /\.styl$/,
+          loaders: 'style-loader!css-loader?minimize=true!stylus-loader'
+        },
+      "
+      ;;
+    LESS)
+      echo "
+        {
+          test: /\.less$/,
+          loaders: 'style-loader!css-loader?minimize=true!less-loader'
+        },
+      "
+      ;;
+  esac
+}
+
 function get_css_extension() {
   case $1 in
     STANDARD)
@@ -62,5 +99,3 @@ function get_css_choice() {
     esac
   done
 }
-
-export -f get_css_choice
