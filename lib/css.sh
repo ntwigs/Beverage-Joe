@@ -1,7 +1,6 @@
 #!/bin/bash
 
-CSS="What CSS post-processor would you like?: "
-INVALID_OPTION="Select valid option"
+source ${path}/lib/strings.sh # * CSS Loaders
 
 STANDARD="css"
 SASS="scss"
