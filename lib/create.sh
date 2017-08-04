@@ -5,7 +5,6 @@ source ${path}/lib/css.sh # get_css_extension get_css_loader_information
 source ${path}/lib/html.sh # get_html_extension get_html_loader_informationsven
 
 function install_main_dependencies() {
-  npm init
   npm install --save-dev\
     babel-core\
     babel-loader\
@@ -22,6 +21,12 @@ function install_main_dependencies() {
 
 function write_webpack_config() {
   cat << EOF > webpack.config.js 
+    $1
+EOF
+}
+
+function write_package_config() {
+  cat << EOF > package.json 
     $1
 EOF
 }
@@ -81,8 +86,8 @@ function get_webpack_content() {
               }
             }],
           },
+          $2
           $3
-          $4
           {
             test: /\.(png|jpg|gif)$/,
             loaders: 'url-loader'
@@ -93,8 +98,31 @@ function get_webpack_content() {
   "
 }
 
+function get_package() {
+  echo "{
+    \"name\": \"$1\",
+    \"version\": \"0.0.1\",
+    \"description\": \"\",
+    \"main\": \"js/index.js\",
+    \"scripts\": {
+      \"start\": \"webpack-dev-server\"
+    },
+    \"author\": \"\",
+    \"license\": \"ISC\",
+    \"devDependencies\": {}
+  }"
+}
+
+function set_directory() {
+  mkdir "$1"
+  cd "$1"
+}
+
 function create_project() {
-  cd $PWD
+  set_directory "$3"
+
+  local package_content=$(get_package "$3")
+  write_package_config "$package_content"
 
   install_main_dependencies
   install_html_dependency $1
@@ -104,8 +132,8 @@ function create_project() {
   local css_extension=$(get_css_extension $2)
   local html_loader=$(get_html_loader_information $1)
   local css_loader=$(get_css_loader_information $2)
-  local webpack_content=$(get_webpack_content $html_extension $css_extension $html_loader $css_loader)
+  local webpack_content=$(get_webpack_content "$html_extension" "$html_loader" "$css_loader")
 
-  write_webpack_config $webpack_content
+  write_webpack_config "$webpack_content"
   create_folder_structure $html_extension $css_extension
 }
