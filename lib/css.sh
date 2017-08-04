@@ -18,36 +18,16 @@ css_choices=(
 function get_css_loader_information() {
   case $1 in
     STANDARD)
-      echo "
-        {
-          test: /\.css$/,
-          loaders: 'style-loader!css-loader?minimize=true'
-        },
-      "
+      echo "$CSS_LOADER"
       ;;
     SASS)
-      echo "
-        {
-          test: /\.scss$/,
-          loaders: 'style-loader!css-loader?minimize=true!sass-loader'
-        },
-      "
+      echo "$SASS_LOADER"
       ;;
     STYLUS)
-      echo "
-        {
-          test: /\.styl$/,
-          loaders: 'style-loader!css-loader?minimize=true!stylus-loader'
-        },
-      "
+      echo "$STYLUS_LOADER"
       ;;
     LESS)
-      echo "
-        {
-          test: /\.less$/,
-          loaders: 'style-loader!css-loader?minimize=true!less-loader'
-        },
-      "
+      echo "$LESS_LOADER"
       ;;
   esac
 }
