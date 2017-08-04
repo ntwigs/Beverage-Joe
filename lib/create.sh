@@ -35,10 +35,10 @@ EOF
 function create_folder_structure() {
   mkdir src
   cd src
-  mkdir image
-  mkdir js
-  mkdir style
-  mkdir view
+  mkdir image # For images
+  mkdir js # For JavaScript
+  mkdir style # For Css
+  mkdir view # For html
   touch view/index.$1
   touch style/index.$2
   echo "import '../style/index.$2'" >> js/index.js
