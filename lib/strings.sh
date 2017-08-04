@@ -1,5 +1,28 @@
 #!/bin/bash
 
+# ENTRY MESSAGES #
+CONFIRMATION="Are you ok with this? (y/n/q) "
+NO_NAME="
+  You have to set a name
+  Ex. create-joe amazing-project
+"
+
+## GENERATES SELECTION PRESENTATION ##
+function present_choices() {
+  echo "
+    Selected HTML: $1
+    Selected CSS: $2
+  "
+}
+
+# COMMON MESSAGES #
+INVALID_OPTION="Select valid option"
+
+# HTML #
+
+## HTML MESSAGES ##
+HTML="What HTML template engine would you like?: "
+
 ## HTML LOADERS ##
 HTML_LOADER="
   {
@@ -29,6 +52,11 @@ HANDLEBARS_LOADER="
   },
 "
 
+# CSS #
+
+## CSS MESSAGES ##
+CSS="What CSS post-processor would you like?: "
+
 ## CSS LOADERS ##
 CSS_LOADER="
   {
@@ -55,8 +83,7 @@ LESS_LOADER="
   },
 "
 
-
-
+## GENERATE WEBPACK CONTENT ##
 function get_webpack_content() {
   echo "
     const path = require('path')
@@ -112,6 +139,7 @@ function get_webpack_content() {
   "
 }
 
+## GENERATE PACKAGE.JSON CONTENT ##
 function get_package() {
   echo "{
     \"name\": \"$1\",
