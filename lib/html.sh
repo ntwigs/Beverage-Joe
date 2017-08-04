@@ -26,12 +26,20 @@ function get_loader_information() {
       "
       ;;
     HAML)
-      npm install --save-dev haml-loader
-      echo ${HAML}
+      echo "
+        {
+          test: /\.(html|haml|hamlc)$/,
+          loader: 'haml-loader'
+        },
+      "
       ;;
     PUG)
-      npm install --save-dev pug pug-html-loader
-      echo ${PUG}
+      echo "
+        {
+          test: /\.pug$/,
+          loader: 'html-loader!pug-html-loader?pretty&exports=false'
+        }
+      "
       ;;
     HANDLEBARS)
       npm install --save-dev handlebars-loader handlebars
