@@ -5,21 +5,8 @@ source ${path}/lib/css.sh # get_css_choice
 source ${path}/lib/html.sh # get_html_choice
 source ${path}/lib/create.sh # create_project
 source ${path}/lib/utils.sh # cls
+source ${path}/lib/strings.sh # CONFIRMATION NO_NAME present_choices
 
-## STRINGS ##
-CONFIRMATION="Are you ok with this? (y/n/q) "
-NO_NAME="
-  You have to set a name
-  Ex. create-joe amazing-project
-"
-
-# Presents the selected choices to user for evaluation
-function present_choices() {
-  echo "
-    Selected HTML: $1
-    Selected CSS: $2
-  "
-}
 
 # Gets one input from user
 function get_confirm_choice() {
