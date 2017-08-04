@@ -2,30 +2,31 @@
 
 source ${path}/lib/strings.sh # * CSS Loaders
 
-STANDARD="css"
-SASS="scss"
-STYLUS="styl"
-LESS="less"
+# Extensions #
+standard="css"
+sass="scss"
+stylus="styl"
+less="less"
 
 css_choices=(
-  STANDARD
-  SASS
-  STYLUS
-  LESS
+  standard
+  sass
+  stylus
+  less
 )
 
 function get_css_loader_information() {
   case $1 in
-    STANDARD)
+    standard)
       echo "$CSS_LOADER"
       ;;
-    SASS)
+    sass)
       echo "$SASS_LOADER"
       ;;
-    STYLUS)
+    stylus)
       echo "$STYLUS_LOADER"
       ;;
-    LESS)
+    less)
       echo "$LESS_LOADER"
       ;;
   esac
@@ -33,13 +34,13 @@ function get_css_loader_information() {
 
 function install_css_dependency() {
   case $1 in
-    SASS)
+    sass)
       npm install --save-dev sass-loader node-sass sass
       ;;
-    STYLUS)
+    stylus)
       npm install --save-dev stylus-loader stylus
       ;;
-    LESS)
+    less)
       npm install --save-dev less-loader less
       ;;
   esac
@@ -47,44 +48,44 @@ function install_css_dependency() {
 
 function get_css_extension() {
   case $1 in
-    STANDARD)
-      echo ${STANDARD}
+    standard)
+      echo ${standard}
       ;;
-    SASS)
-      echo ${SASS}
+    sass)
+      echo ${sass}
       ;;
-    STYLUS)
-      echo ${STYLUS}
+    stylus)
+      echo ${stylus}
       ;;
-    LESS)
-      echo ${LESS}
+    less)
+      echo ${less}
       ;;
   esac
 }
 
 function get_css_choice() {
-  PS3=${CSS}
+  PS3=${css}
   select choice in "${css_choices[@]}"
   do
     case $choice in
-      STANDARD)
-        echo STANDARD
+      standard)
+        echo standard
         break
         ;;
-      SASS)
-        echo SASS
+      sass)
+        echo sass
         break
         ;;
-      STYLUS)
-        echo STYLUS
+      stylus)
+        echo stylus
         break
         ;;
-      LESS)
-        echo LESS
+      less)
+        echo less
         break
         ;;
       *)
-        echo ${INVALID_OPTION}
+        echo ${invalid_option}
         ;;
     esac
   done

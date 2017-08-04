@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # ENTRY MESSAGES #
-CONFIRMATION="Are you ok with this? (y/n/q) "
-NO_NAME="
+confirmation="Are you ok with this? (y/n/q) "
+no_name="
   You have to set a name
   Ex. create-joe amazing-project
 "
@@ -16,36 +16,36 @@ function present_choices() {
 }
 
 # COMMON MESSAGES #
-INVALID_OPTION="Select valid option"
+invalid_option="Select valid option"
 
 # HTML #
 
 ## HTML MESSAGES ##
-HTML="What HTML template engine would you like?: "
+html="What HTML template engine would you like?: "
 
 ## HTML LOADERS ##
-HTML_LOADER="
+html_loader="
   {
     test: /\.html$/,
     loader: 'html-loader'
   },
 "
 
-HAML_LOADER="
+haml_loader="
   {
     test: /\.(html|haml|hamlc)$/,
     loader: 'haml-loader'
   },
 "
 
-PUG_LOADER="
+pug_loader="
   {
     test: /\.pug$/,
     loader: 'html-loader!pug-html-loader?pretty&exports=false'
   },
 "
 
-HANDLEBARS_LOADER="
+handlebars_loader="
   {
     test: /\.(hbs|handlebars)$/,
     loader: 'handlebars-loader'
@@ -55,28 +55,28 @@ HANDLEBARS_LOADER="
 # CSS #
 
 ## CSS MESSAGES ##
-CSS="What CSS post-processor would you like?: "
+css="What CSS post-processor would you like?: "
 
 ## CSS LOADERS ##
-CSS_LOADER="
+css_loader="
   {
     test: /\.css$/,
     loaders: 'style-loader!css-loader?minimize=true'
   },
 "
-SASS_LOADER="
+sass_loader="
   {
     test: /\.scss$/,
     loaders: 'style-loader!css-loader?minimize=true!sass-loader'
   },
 "
-STYLUS_LOADER="
+stylus_loader="
   {
     test: /\.styl$/,
     loaders: 'style-loader!css-loader?minimize=true!stylus-loader'
   },
 "
-LESS_LOADER="
+less_loader="
   {
     test: /\.less$/,
     loaders: 'style-loader!css-loader?minimize=true!less-loader'

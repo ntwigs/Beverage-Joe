@@ -2,44 +2,44 @@
 
 source ${path}/lib/strings.sh # * HTML Loaders
 
-STANDARD="html"
-HAML="haml"
-PUG="pug"
-HANDLEBARS="hbs"
+standard="html"
+haml="haml"
+pug="pug"
+handlebars="hbs"
 
 html_choices=(
-  STANDARD
-  HAML
-  PUG
-  HANDLEBARS
+  standard
+  haml
+  pug
+  handlebars
 )
 
 function get_html_loader_information() {
   case $1 in
-    STANDARD)
-      echo "$HTML_LOADER"
+    standard)
+      echo "$html_loader"
       ;;
-    HAML)
-      echo "$HAML_LOADER"
+    haml)
+      echo "$haml_loader"
       ;;
-    PUG)
-      echo "$PUG_LOADER" 
+    pug)
+      echo "$pug_loader" 
       ;;
-    HANDLEBARS)
-      echo "$HANDLEBARS_LOADER"
+    handlebars)
+      echo "$handlebars_loader"
       ;;
   esac
 }
 
 function install_html_dependency() {
   case $1 in
-    HAML)
+    haml)
       npm install --save-dev haml-loader
       ;;
-    PUG)
+    pug)
       npm install --save-dev pug pug-html-loader
       ;;
-    HANDLEBARS)
+    handlebars)
       npm install --save-dev handlebars-loader handlebars
       ;;
   esac
@@ -47,44 +47,44 @@ function install_html_dependency() {
 
 function get_html_extension() {
   case $1 in
-    STANDARD)
-      echo ${STANDARD}
+    standard)
+      echo ${standard}
       ;;
-    HAML)
-      echo ${HAML}
+    haml)
+      echo ${haml}
       ;;
-    PUG)
-      echo ${PUG}
+    pug)
+      echo ${pug}
       ;;
-    HANDLEBARS)
-      echo ${HANDLEBARS}
+    handlebars)
+      echo ${handlebars}
       ;;
   esac
 }
 
 function get_html_choice() {
-  PS3=${HTML}
+  PS3=${html}
   select choice in "${html_choices[@]}"
   do
     case $choice in
-      STANDARD)
-        echo STANDARD
+      standard)
+        echo standard
         break
         ;;
-      HAML)
-        echo HAML
+      haml)
+        echo haml
         break
         ;;
-      PUG)
-        echo PUG
+      pug)
+        echo pug
         break
         ;;
-      HANDLEBARS)
-        echo HANDLEBARS
+      handlebars)
+        echo handlebars
         break
         ;;
       *)
-        echo ${INVALID_OPTION}
+        echo ${invalid_option}
         ;;
     esac
   done
