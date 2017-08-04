@@ -18,36 +18,16 @@ html_choices=(
 function get_html_loader_information() {
   case $1 in
     STANDARD)
-      echo "
-        {
-          test: /\.html$/,
-          loader: 'html-loader'
-        },
-      "
+      echo "$HTML_LOADER"
       ;;
     HAML)
-      echo "
-        {
-          test: /\.(html|haml|hamlc)$/,
-          loader: 'haml-loader'
-        },
-      "
+      echo "$HAML_LOADER"
       ;;
     PUG)
-      echo "
-        {
-          test: /\.pug$/,
-          loader: 'html-loader!pug-html-loader?pretty&exports=false'
-        },
-      "
+      echo "$PUG_LOADER" 
       ;;
     HANDLEBARS)
-      echo "
-        {
-          test: /\.(hbs|handlebars)$/,
-          loader: 'handlebars-loader'
-        },
-      "
+      echo 
       ;;
   esac
 }
