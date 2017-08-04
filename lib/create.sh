@@ -2,7 +2,7 @@
 
 path="$(dirname "$0")" # Bash directory
 source ${path}/lib/css.sh # get_css_extension get_css_loader_information
-source ${path}/lib/html.sh # get_html_extension get_html_loader_information
+source ${path}/lib/html.sh # get_html_extension get_html_loader_informationsven
 
 function install_main_dependencies() {
   npm init
@@ -22,8 +22,8 @@ function install_main_dependencies() {
 
 function write_webpack_config() {
   cat << EOF > webpack.config.js 
-    $webpack_content
-EOF # This cannot be indented (End of File)
+    $1
+EOF
 }
 
 function create_folder_structure() {
@@ -81,8 +81,8 @@ function get_webpack_content() {
               }
             }],
           },
+          $3
           $4
-          $5
           {
             test: /\.(png|jpg|gif)$/,
             loaders: 'url-loader'
@@ -97,6 +97,8 @@ function create_project() {
   cd $PWD
 
   install_main_dependencies
+  install_html_dependency $1
+  install_css_dependency $2
   
   local html_extension=$(get_html_extension $1)
   local css_extension=$(get_css_extension $2)
@@ -104,6 +106,6 @@ function create_project() {
   local css_loader=$(get_css_loader_information $2)
   local webpack_content=$(get_webpack_content $html_extension $css_extension $html_loader $css_loader)
 
-  write_webpack_config
+  write_webpack_config $webpack_content
   create_folder_structure $html_extension $css_extension
 }
