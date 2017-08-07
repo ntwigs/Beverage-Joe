@@ -18,16 +18,16 @@ css_choices=(
 function get_css_loader_information() {
   case $1 in
     standard)
-      echo "$CSS_LOADER"
+      echo "$css_loader"
       ;;
     sass)
-      echo "$SASS_LOADER"
+      echo "$sass_loader"
       ;;
     stylus)
-      echo "$STYLUS_LOADER"
+      echo "$stylus_loader"
       ;;
     less)
-      echo "$LESS_LOADER"
+      echo "$less_loader"
       ;;
   esac
 }
