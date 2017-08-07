@@ -34,13 +34,13 @@ EOF
 }
 
 function create_folder_structure() {
-  mkdir "$root_name"
-  cd "$root_name"
+  mkdir "$root_folder"
+  cd "$root_folder"
   mkdir "$images_folder" # For images
   mkdir "$javascript_folder" # For JavaScript
   mkdir "$stylesheet_folder" # For Css
   mkdir "$pages_folder" # For html
-  touch "$pages_folder"/"$html_index"."$1"
+  touch "$pages_folder"/"$pages_index"."$1"
   touch "$stylesheet_folder"/"$stylesheet_index"."$2"
   echo "import '../$stylesheet_folder/$stylesheet_index.$2'" >> "$javascript_folder"/"$javascript_index".js
 }
