@@ -4,6 +4,7 @@ path="$(dirname "$0")" # Bash directory
 source ${path}/lib/css.sh # get_css_extension get_css_loader_information
 source ${path}/lib/html.sh # get_html_extension get_html_loader_informationsven
 source ${path}/lib/strings.sh # get_package get_webpack_content
+source ${path}/config.sh # get_package get_webpack_content
 
 function install_main_dependencies() {
   npm install --save-dev\
@@ -33,15 +34,15 @@ EOF
 }
 
 function create_folder_structure() {
-  mkdir src
-  cd src
-  mkdir image # For images
-  mkdir js # For JavaScript
-  mkdir style # For Css
-  mkdir view # For html
-  touch view/index.$1
-  touch style/index.$2
-  echo "import '../style/index.$2'" >> js/index.js
+  mkdir "$root_name"
+  cd "$root_name"
+  mkdir "$images_folder" # For images
+  mkdir "$javascript_folder" # For JavaScript
+  mkdir "$stylesheet_folder" # For Css
+  mkdir "$pages_folder" # For html
+  touch "$pages_folder"/"$html_index"."$1"
+  touch "$stylesheet_folder"/"$stylesheet_index"."$2"
+  echo "import '../$stylesheet_folder/$stylesheet_index.$2'" >> "$javascript_folder"/"$javascript_index".js
 }
 
 function set_directory() {
