@@ -3,13 +3,13 @@
 source ${path}/lib/strings.sh # * CSS Loaders
 
 # Extensions #
-standard="css"
+css="css"
 sass="scss"
 stylus="styl"
 less="less"
 
 css_choices=(
-  standard
+  css
   sass
   stylus
   less
@@ -17,7 +17,7 @@ css_choices=(
 
 function get_css_loader_information() {
   case $1 in
-    standard)
+    css)
       echo "$css_loader"
       ;;
     sass)
@@ -48,8 +48,8 @@ function install_css_dependency() {
 
 function get_css_extension() {
   case $1 in
-    standard)
-      echo ${standard}
+    css)
+      echo ${css}
       ;;
     sass)
       echo ${sass}
@@ -64,12 +64,12 @@ function get_css_extension() {
 }
 
 function get_css_choice() {
-  PS3=${css}
+  PS3=${css_message}
   select choice in "${css_choices[@]}"
   do
     case $choice in
-      standard)
-        echo standard
+      css)
+        echo css
         break
         ;;
       sass)
