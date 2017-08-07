@@ -27,24 +27,24 @@ html_message="What HTML template engine would you like?: "
 
 ## HTML LOADERS ##
 html_loader="{
-            test: /\.html$/,
-            loader: 'html-loader'
-          },"
+        test: /\.html$/,
+        loader: 'html-loader'
+      },"
 
 haml_loader="{
-            test: /\.(html|haml|hamlc)$/,
-            loader: 'haml-loader'
-          },"
+        test: /\.(html|haml|hamlc)$/,
+        loader: 'haml-loader'
+      },"
 
 pug_loader="{
-            test: /\.pug$/,
-            loader: 'html-loader!pug-html-loader?pretty&exports=false'
-          },"
+        test: /\.pug$/,
+        loader: 'html-loader!pug-html-loader?pretty&exports=false'
+      },"
 
 handlebars_loader="{
-            test: /\.(hbs|handlebars)$/,
-            loader: 'handlebars-loader'
-          },"
+        test: /\.(hbs|handlebars)$/,
+        loader: 'handlebars-loader'
+      },"
 
 # CSS #
 
@@ -53,24 +53,24 @@ css_message="What CSS post-processor would you like?: "
 
 ## CSS LOADERS ##
 css_loader="{
-            test: /\.css$/,
-            loaders: 'style-loader!css-loader?minimize=true'
-          },"
+        test: /\.css$/,
+        loaders: 'style-loader!css-loader?minimize=true'
+      },"
           
 sass_loader="{
-            test: /\.scss$/,
-            loaders: 'style-loader!css-loader?minimize=true!sass-loader'
-          },"
+        test: /\.scss$/,
+        loaders: 'style-loader!css-loader?minimize=true!sass-loader'
+      },"
 
 stylus_loader="{
-            test: /\.styl$/,
-            loaders: 'style-loader!css-loader?minimize=true!stylus-loader'
-          },"
+        test: /\.styl$/,
+        loaders: 'style-loader!css-loader?minimize=true!stylus-loader'
+      },"
 
 less_loader="{
-            test: /\.less$/,
-            loaders: 'style-loader!css-loader?minimize=true!less-loader'
-          },"
+        test: /\.less$/,
+        loaders: 'style-loader!css-loader?minimize=true!less-loader'
+      },"
 
 ## GENERATE WEBPACK CONTENT ##
 function get_webpack_content() {
