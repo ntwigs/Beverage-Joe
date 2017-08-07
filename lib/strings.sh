@@ -3,7 +3,7 @@
 source ${path}/config.sh # get_package get_webpack_content
 
 # ENTRY MESSAGES #
-confirmation="Are you ok with this? (y/n/q) "
+confirmation="Are you ok with this? [y/n] "
 no_name="
   You have to set a name
   Ex. create-joe amazing-project
