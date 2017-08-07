@@ -20,9 +20,7 @@ function proceed() {
     create_project $2 $3 $4
   elif [[ $1 =~ ^[Nn]$ ]]; then
     cls
-    initialize
-  elif [[ $1 =~ ^[Qq]$ ]]; then
-    exit 1
+    initialize $4
   fi
 }
 
