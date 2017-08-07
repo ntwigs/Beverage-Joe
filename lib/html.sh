@@ -2,13 +2,13 @@
 
 source ${path}/lib/strings.sh # * HTML Loaders
 
-standard="html"
+html="html"
 haml="haml"
 pug="pug"
 handlebars="hbs"
 
 html_choices=(
-  standard
+  html
   haml
   pug
   handlebars
@@ -16,7 +16,7 @@ html_choices=(
 
 function get_html_loader_information() {
   case $1 in
-    standard)
+    html)
       echo "$html_loader"
       ;;
     haml)
@@ -47,8 +47,8 @@ function install_html_dependency() {
 
 function get_html_extension() {
   case $1 in
-    standard)
-      echo ${standard}
+    html)
+      echo ${html}
       ;;
     haml)
       echo ${haml}
@@ -63,12 +63,12 @@ function get_html_extension() {
 }
 
 function get_html_choice() {
-  PS3=${html}
+  PS3=${html_message}
   select choice in "${html_choices[@]}"
   do
     case $choice in
-      standard)
-        echo standard
+      html)
+        echo html
         break
         ;;
       haml)
