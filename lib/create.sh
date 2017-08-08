@@ -21,35 +21,43 @@ function install_main_dependencies() {
     webpack-dev-server
 }
 
+# $1: Webpack configuration from strings.sh
 function write_webpack_config() {
   cat << EOF > webpack.config.js 
     $1
 EOF
 }
 
+# $1: Package.json configuration from strings.sh
 function write_package_config() {
   cat << EOF > package.json 
     $1
 EOF
 }
 
+# $1: html extension
+# $2: css extension
 function create_folder_structure() {
   mkdir "$root_folder"
   cd "$root_folder"
   mkdir "$images_folder" # For images
   mkdir "$javascript_folder" # For JavaScript
   mkdir "$stylesheet_folder" # For Css
-  mkdir "$pages_folder" # For html
+  mkdir "$pages_folder" # For Html
   touch "$pages_folder"/"$pages_index"."$1"
   touch "$stylesheet_folder"/"$stylesheet_index"."$2"
   echo "import '../$stylesheet_folder/$stylesheet_index.$2'" >> "$javascript_folder"/"$javascript_index".js
 }
 
+# $1: Project name
 function set_directory() {
   mkdir "$1"
   cd "$1"
 }
 
+# $1: Html choice
+# $2: Css choice
+# $3: Project name
 function create_project() {
   set_directory "$3"
 
