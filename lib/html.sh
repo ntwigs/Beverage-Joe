@@ -14,6 +14,7 @@ html_choices=(
   handlebars
 )
 
+# $1: Html choice
 function get_html_loader_information() {
   case $1 in
     html)
@@ -31,6 +32,7 @@ function get_html_loader_information() {
   esac
 }
 
+# $1: Html choice
 function install_html_dependency() {
   case $1 in
     haml)
@@ -45,6 +47,7 @@ function install_html_dependency() {
   esac
 }
 
+# $1: Html choice
 function get_html_extension() {
   case $1 in
     html)
