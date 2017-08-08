@@ -10,6 +10,8 @@ no_name="
 "
 
 ## GENERATES SELECTION PRESENTATION ##
+# $1: Html choice
+# $2: Css choice
 function present_choices() {
   echo "
     Selected HTML: $1
@@ -73,6 +75,9 @@ less_loader="{
       },"
 
 ## GENERATE WEBPACK CONTENT ##
+# $1: Chosen html extension
+# $2: Html loader
+# $3: Css loader
 function get_webpack_content() {
   echo "
 const path = require('path')
@@ -128,6 +133,7 @@ module.exports = {
 }
 
 ## GENERATE PACKAGE.JSON CONTENT ##
+# $1: Project name
 function get_package() {
   echo "{
     \"name\": \"$1\",
