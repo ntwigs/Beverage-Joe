@@ -27,17 +27,19 @@ The script will work anywhere Bash works. If it however does **not** work on you
     ├── node_modules
     ├── package.json
     ├── package-lock.json
-    ├── src
+    ├── .gitignore
+    ├── static
     │   ├── image
     │   ├── js
     │   │   └── index.js
     │   ├── style
     │   │   └── index.x
-    │   └── view
+    │   └── views
     │       └── index.y
     └── webpack.config.js
 
-    The file structure can however be configured by editing the file webpack.config.js in order to suit your needs.
+
+Are you not agreeing with the name and file-structure presented above? Great! You can change that by configuring config.sh located in the root folder. 
 
 ## Quick Overview
 Run the shellscript by doing one of the two options in the Setup down below, and the run the following commands:
