@@ -35,6 +35,13 @@ function write_package_config() {
 EOF
 }
 
+# $1: .gitignore configuration from strings.sh
+function write_gitignore() {
+  cat << EOF > .gitignore
+    $1
+EOF
+}
+
 # $1: html extension
 # $2: css extension
 function create_folder_structure() {
@@ -74,6 +81,8 @@ function create_project() {
   local css_loader=$(get_css_loader_information $2)
   local webpack_content=$(get_webpack_content "$html_extension" "$html_loader" "$css_loader")
 
+
   write_webpack_config "$webpack_content"
+  write_gitignore "$gitignore"
   create_folder_structure $html_extension $css_extension
 }
