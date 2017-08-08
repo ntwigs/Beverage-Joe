@@ -148,3 +148,6 @@ function get_package() {
     \"devDependencies\": {}
   }"
 }
+
+## GITIGNORE ##
+gitignore="node_modules"
