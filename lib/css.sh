@@ -15,6 +15,7 @@ css_choices=(
   less
 )
 
+# $1: Css choice
 function get_css_loader_information() {
   case $1 in
     css)
@@ -32,6 +33,7 @@ function get_css_loader_information() {
   esac
 }
 
+# $1: Css choice
 function install_css_dependency() {
   case $1 in
     sass)
@@ -46,6 +48,7 @@ function install_css_dependency() {
   esac
 }
 
+# $1: Css choice
 function get_css_extension() {
   case $1 in
     css)
