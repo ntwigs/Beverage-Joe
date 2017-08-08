@@ -15,15 +15,20 @@ function get_confirm_choice() {
 }
 
 # Proceeds with selecting the task that matches the input
+# $1: Selected option
+# $2: html choice
+# $3: css choice
+# $4: project name
 function proceed() {
   if [[ $1 =~ ^[Yy]$ ]]; then
-    create_project $2 $3 $4
+    create_project $2 $3 $4 
   elif [[ $1 =~ ^[Nn]$ ]]; then
     cls
     initialize $4
   fi
 }
 
+# $1: Project name or Empty
 function check_name() {
   if [[ -z "${1// }" ]]; then
     echo "$no_name"
@@ -31,17 +36,19 @@ function check_name() {
   fi
 }
 
+
+# $1: Project name
 function initialize() {
-  check_name $1 # $1 is the first argument which should be a name
+  check_name $1
   cls
   local html_choice=$(get_html_choice)
   cls
   local css_choice=$(get_css_choice)
   cls
-  present_choices ${html_choice} ${css_choice}
+  present_choices ${html_choice} ${css_choice} 
   local confirm_choice=$(get_confirm_choice)
   cls
   proceed $confirm_choice $html_choice $css_choice $1
 }
 
-initialize $1
+initialize $1 # Initializes with project name
