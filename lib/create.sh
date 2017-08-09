@@ -81,8 +81,9 @@ function create_project() {
   local css_loader=$(get_css_loader_information $2)
   local webpack_content=$(get_webpack_content "$html_extension" "$html_loader" "$css_loader")
 
-
   write_webpack_config "$webpack_content"
   write_gitignore "$gitignore"
   create_folder_structure $html_extension $css_extension
+  google-chrome "http://localhost:$port" # Opens chrome
+  npm start # starts dev server
 }
