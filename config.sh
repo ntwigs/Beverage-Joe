@@ -18,4 +18,4 @@ javascript_index="index" # Default: index
 build_folder="build" # Default: build
 
 ## PORT ##
-port="1337" # Default: build
+port="8080" # Default: 8080
