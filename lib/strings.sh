@@ -86,10 +86,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   context: path.resolve(__dirname, './$root_folder'), // Dev Source
-  entry: {
-    index: './$pages_folder/$pages_index.$1', // Index HTML file
-    bundle: './$javascript_folder/$javascript_index.js' // Index JavaScript file
-  },
+  entry: [
+    'webpack-dev-server/client?http://localhost:$port/',
+    'webpack/hot/only-dev-server',
+    './$javascript_folder/$javascript_index.js',
+  ],
   output: {
     path: path.resolve(__dirname, './$build_folder'), // Build folder
     filename: '[name].bundle.js',
@@ -100,6 +101,7 @@ module.exports = {
     watchContentBase: true,
     hot: true,
     inline: true,
+    port: $port
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
@@ -131,6 +133,7 @@ module.exports = {
   },
 }"
 }
+
 
 ## GENERATE PACKAGE.JSON CONTENT ##
 # $1: Project name
