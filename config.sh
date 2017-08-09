@@ -16,3 +16,6 @@ javascript_index="index" # Default: index
 
 ## BUILD FILES ##
 build_folder="build" # Default: build
+
+## PORT ##
+port="1337" # Default: build
