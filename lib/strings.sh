@@ -134,7 +134,6 @@ module.exports = {
 }"
 }
 
-
 ## GENERATE PACKAGE.JSON CONTENT ##
 # $1: Project name
 function get_package() {
@@ -144,7 +143,8 @@ function get_package() {
     \"description\": \"\",
     \"main\": \"js/index.js\",
     \"scripts\": {
-      \"start\": \"webpack-dev-server\"
+      \"start\": \"webpack-dev-server\",
+      \"build\": \"webpack -p\"
     },
     \"author\": \"\",
     \"license\": \"ISC\",
