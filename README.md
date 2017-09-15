@@ -21,13 +21,13 @@ It's a Bash script which creates a set of files in order to get you up and runni
 |      Stylus      |       Pug     |
 |       Less       |      Haml     |
 
-▶ Configured with Weback
-▶ It runs on the Webpack Development Server
-▶ Minified CSS which is added to inline for fewer requests
-▶ Supports ES6
-▶ Supports [Class Properties](https://babeljs.io/docs/plugins/transform-class-properties/)
-▶ Hot reload
-▶ Import stylesheets into JavaScript
+▶ Configured with Weback  
+▶ It runs on the Webpack Development Server  
+▶ Minified CSS which is added to inline for fewer requests  
+▶ Supports ES6  
+▶ Supports [Class Properties](https://babeljs.io/docs/plugins/transform-class-properties/)  
+▶ Hot reload  
+▶ Import stylesheets into JavaScript  
 
 
 The script will work anywhere Bash works. If it however does **not** work on your machine, please [file an issue](https://github.com/NorthernTwig/Beverage-Joe/issues/new).
@@ -88,10 +88,15 @@ Or create an alias for [Bash](http://www.hostingadvice.com/how-to/set-command-al
 ## Why Bash..?
 Bash might not be the best solution to this "problem" - however, I needed fun in my life, and I figured "Hey! Bash is fun", and here we are.
 
+<hr>
+
 
 <p align="center">
 <br>
 <br>
-  Hello there!<br>You are allowed to do what ever you want with this!<br><br>
-  <img alt='License MIT' src='https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square' />
+  <h3 align="center">Hello there!</h3>
+  <p align="center">
+  You are allowed to do what ever you want with this!<br><br>
+    <img alt='License MIT' align="center"src='https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square' />
+  </p>
 </p>
