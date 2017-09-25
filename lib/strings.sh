@@ -87,14 +87,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
   context: path.resolve(__dirname, './$root_folder'), // Dev Source
   entry: [
-    'webpack-dev-server/client?http://localhost:$port/',
     'webpack/hot/only-dev-server',
     './$javascript_folder/$javascript_index.js',
   ],
   output: {
     path: path.resolve(__dirname, './$build_folder'), // Build folder
     filename: '[name].bundle.js',
-    publicPath: '/' // The Build folder root
+    publicPath: '' // The Build folder root
   },
   devServer: {
     contentBase: path.resolve(__dirname, './$root_folder'), // Dev Source
@@ -144,7 +143,7 @@ function get_package() {
     \"main\": \"js/index.js\",
     \"scripts\": {
       \"start\": \"webpack-dev-server\",
-      \"build\": \"webpack -p\"
+      \"build\": \"webpack\"
     },
     \"author\": \"\",
     \"license\": \"ISC\",
